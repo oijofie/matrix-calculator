@@ -10,35 +10,60 @@
 
 using namespace std;
 
-void matrix(int a11, int a12, int a21, int a22)
+
+
+int row_size(int row)
 {
-    int array[4] = {a11, a12, a21, a22};
-    cout << "matrix calculator" << endl;
-    for (int i = 0; i < 4; i++)
-    {
-        cout << "| " << array[i];
-        if (i == 1)
-            cout << endl << "-------" << endl;
-    }
+    cout << "input a column of a matrix" << endl;
+    cin >> row;
+    return row;
 }
+
+int column_size(int column)
+{
+    cout << "input a column of a matrix" << endl;
+    cin >> column;
+    return column;
+}
+
+//int input_matrix(matrix[row][column]);
+/*int list_matrix[5];
+
+for (int i = 0; i < 5; i++)
+{
+    list_matrix[i] = matrix;
+}*/
 
 int main()
 {
-    int a11, a12, a21, a22;
+    int row = 0, column = 0;
+    int num = 0;
+    row = row_size(row);
+    column = column_size(column);
     
-    cout << "matrix calculator" << endl;
-    cout << "-------------------" << endl;
-    cout << " | a11 | a12 |  |  |" << endl;
-    cout << "-------------------" << endl;
-    cout << " | a21 | a22 |  |  |" << endl;
-    cout << "-------------------" << endl;
+    int matrix[row][column];
+    for (int r = 0; r < row; r++)
+        for (int c = 0; c < column; c++)
+        {
+            cout << "input the number for " << r << c << endl;
+            cin >> num;
+            matrix[r][c] = num;
+        }
     
-    cout << "input numbers for a11, a12, a21, a22" << endl;
-    cin >> a11 >> a12 >> a21 >> a22;
-    matrix(a11, a12, a21, a22);
-   
+    for (int r = 0; r < row; r++)
+        for (int c = 0; c < column; c++)
+        {
+            cout << "| " << matrix[r][c];
+            if (c == column)
+            {
+                cout << " |" << endl;
+                cout << "--------" << endl;
+            }
+        }
     
 }
+
+
 
 // make function for matrix to print out
 // make function to calculate matrix such as A*B, inverse, a*ab = a*b, i
