@@ -2,46 +2,27 @@
 //  main.cpp
 //  matrix calculator
 //
-//  Created by RintaroYamauchi on 12/13/18.
-//  Copyright © 2018 Rintaro Yamauchi. All rights reserved.
+//  Created by oijofie on 12/13/18.
+//  Copyright © 2018 oijofie. All rights reserved.
 //
 
 #include <iostream>
 
 using namespace std;
 
-
-
-int row_size(int row)
+void define_matrix(int **matrix, int row, int column)
 {
-    cout << "input a column of a matrix" << endl;
-    cin >> row;
-    return row;
-}
-
-int column_size(int column)
-{
-    cout << "input a column of a matrix" << endl;
-    cin >> column;
-    return column;
-}
-
-//int input_matrix(matrix[row][column]);
-/*int list_matrix[5];
-
-for (int i = 0; i < 5; i++)
-{
-    list_matrix[i] = matrix;
-}*/
-
-int main()
-{
-    int row = 0, column = 0;
     int num = 0;
-    row = row_size(row);
-    column = column_size(column);
     
-    int matrix[row][column];
+    cout << "input numbers of rows and columns" << endl;
+    cin >> row;
+    matrix = new int*[row];
+    cin >> column;
+    for (int i = 0; i < row; i++)
+    {
+        matrix[i] = new int[column];
+    }
+    
     for (int r = 0; r < row; r++)
         for (int c = 0; c < column; c++)
         {
@@ -49,7 +30,11 @@ int main()
             cin >> num;
             matrix[r][c] = num;
         }
-    
+}
+
+void show_matrix(int **matrix, int row, int column)
+{
+    cout << "show_matrix is successfully execused" << endl;
     for (int r = 0; r < row; r++)
         for (int c = 0; c < column; c++)
         {
@@ -60,6 +45,17 @@ int main()
                 cout << "--------" << endl;
             }
         }
+}
+
+
+int main()
+{
+    int row = 0, column = 0;
+    int **matrix = 0;
+    
+    define_matrix(matrix, row, column);
+    show_matrix(matrix, row, column);
+    
     
 }
 
